@@ -9,7 +9,7 @@ if(!file.exists(datafile)){
     data = read.table(datafile,header = TRUE,sep = ";")
     data$Date = strptime(paste(data$Date,data$Time),format = "%Y-%m-%d %H:%M:%S")
 
-    filename4 = "./plot4.png"
+    filename4 = "figure/plot4.png"
     png(filename = filename4 , width = 480, height = 480)
     par(mfrow=c(2,2))
     plot(data$Date,data$Global_active_power,type="n",ylab = "Global Active Power",xlab="")
@@ -28,4 +28,5 @@ if(!file.exists(datafile)){
     lines(data$Date,data$Global_reactive_power)
 
     dev.off()
+    print(paste("Plot written to: ",paste(getwd(),filename4,sep="/"),sep=""))
 }

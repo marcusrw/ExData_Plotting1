@@ -8,8 +8,9 @@ if(!file.exists(datafile)){
 
     data = read.table(datafile,header = TRUE,sep = ";")
 
-    filename1 = "./plot1.png"
+    filename1 = "./figure/plot1.png"
     png(filename = filename1 , width = 480, height = 480)
     hist(data$Global_active_power,main = "Global Active Power",xlab = "Global Active Power (kilowatts)",ylab = "Frequency",col = "red")
     dev.off()
+    print(paste("Plot written to: ",paste(getwd(),filename1,sep="/"),sep=""))
 }
