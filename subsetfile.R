@@ -1,6 +1,5 @@
 this.directory <- dirname(parent.frame(2)$ofile)
 setwd(this.directory)
-print(getwd())
 
 ## check if the files already exist, and download/unzip them if not
 fileUrl = "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
