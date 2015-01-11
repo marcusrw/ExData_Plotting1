@@ -10,7 +10,7 @@ if(!file.exists(datafile)){
     data$Date = strptime(paste(data$Date,data$Time),format = "%Y-%m-%d %H:%M:%S")
 
     filename3 = "./figure/plot3.png"
-    png(filename = filename3 , width = 480, height = 480)
+    png(filename = filename3 , width = 480, height = 480,bg = "transparent")
     plot(data$Date,data$Sub_metering_1,type="n",ylab = "Energy sub metering",xlab = "")
     lines(data$Date,data$Sub_metering_1,col = "black")
     lines(data$Date,data$Sub_metering_2,col = "red")

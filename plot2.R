@@ -10,7 +10,7 @@ if(!file.exists(datafile)){
     data$Date = strptime(paste(data$Date,data$Time),format = "%Y-%m-%d %H:%M:%S")
 
     filename2 = "./figure/plot2.png"
-    png(filename = filename2 , width = 480, height = 480)
+    png(filename = filename2 , width = 480, height = 480,bg = "transparent")
     plot(data$Date,data$Global_active_power,type="n",ylab = "Global Active Power (kilowatts)",xlab="")
     lines(data$Date,data$Global_active_power)
     dev.off()
