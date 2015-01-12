@@ -3,13 +3,15 @@ setwd(this.directory)
 
 datafile = "./data/household_power_consumption_subset.txt"
 if(!file.exists(datafile)){
-    print("Run subsetfile.R first to generate data file")
+    # Download/unzip/subset the datafile if it doesn't exist
+    print("Running subsetfile.R first to generate data file...")
+    source("./subsetfile.R")
 }else{
 
     data = read.table(datafile,header = TRUE,sep = ";")
     data$Date = strptime(paste(data$Date,data$Time),format = "%Y-%m-%d %H:%M:%S")
 
-    filename3 = "./figure/plot3.png"
+    filename3 = "figure/plot3.png"
     png(filename = filename3 , width = 480, height = 480,bg = "transparent")
     plot(data$Date,data$Sub_metering_1,type="n",ylab = "Energy sub metering",xlab = "")
     lines(data$Date,data$Sub_metering_1,col = "black")
